@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Student Registration Form</h1>
+        <p>Enter your details to register</p>
+
+        <form id="studentForm">
+
+            <label>Student Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label>Register Number:</label>
+            <input type="text" id="regno" placeholder="Enter register number" required>
+
+            <label>Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label>Department:</label>
+            <select id="department" required>
+                <option value="">Select Department</option>
+                <option value="CSE">Computer Science</option>
+                <option value="AIML">AI and Machine Learning</option>
+                <option value="ECE">Electronics</option>
+                <option value="IT">Information Technology</option>
+            </select>
+
+            <label>Year of Study:</label>
+            <select id="year">
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+            </select>
+
+            <label>Gender:</label>
+            <div class="radio-group">
+                <input type="radio" name="gender" value="Male" checked> Male
+                <input type="radio" name="gender" value="Female"> Female
+            </div>
+
+            <label>Skills:</label>
+            <div class="radio-group">
+                <input type="checkbox" class="skill" value="Java"> Java
+                <input type="checkbox" class="skill" value="Python"> Python
+                <input type="checkbox" class="skill" value="HTML"> HTML
+            </div>
+
+            <button type="submit" id="submitBtn">Register Student</button>
+            <button type="reset" id="resetBtn">Clear Form</button>
+
+        </form>
+
+        <div id="result">
+            <h2>Registration Details</h2>
+            <p id="output">No student registered yet.</p>
+        </div>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

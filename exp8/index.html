@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ExperimentApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Mini Apps | Experiment 8</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body ng-controller="ExperimentController">
+    <main class="container">
+        <header class="page-header">
+            <span class="eyebrow">EXPERIMENT 08 · ANGULARJS</span>
+            <h1>Small Apps, Big Ideas</h1>
+            <p>Three small AngularJS apps for sharing ideas, solving problems, and staying organized.</p>
+            <div class="register-number">Register No: <strong>URK24CS9068</strong></div>
+        </header>
+
+        <div class="app-grid">
+            <section class="panel comment-panel" aria-labelledby="comments-heading">
+                <div class="section-heading">
+                    <span class="section-number">01</span>
+                    <div>
+                        <h2 id="comments-heading">Comment Box</h2>
+                        <p>Leave a thought for the class.</p>
+                    </div>
+                </div>
+
+                <form ng-submit="addComment()">
+                    <label for="comment">Your comment</label>
+                    <textarea id="comment" ng-model="newComment" placeholder="Write something..." required></textarea>
+                    <button class="primary-button" type="submit">Post comment</button>
+                </form>
+
+                <section class="comments" aria-label="Posted comments">
+                    <h3>Comments <span class="count">{{ comments.length }}</span></h3>
+                    <p class="empty-state" ng-if="comments.length === 0">No comments yet. Be the first!</p>
+                    <article class="comment" ng-repeat="comment in comments track by $index">
+                        <p>{{ comment }}</p>
+                        <button class="remove-button" type="button" ng-click="removeComment($index)" aria-label="Remove comment">Remove</button>
+                    </article>
+                </section>
+            </section>
+
+            <section class="panel calculator-panel" aria-labelledby="calculator-heading">
+                <div class="section-heading">
+                    <span class="section-number">02</span>
+                    <div>
+                        <h2 id="calculator-heading">Simple Calculator</h2>
+                        <p>Choose an operation and get the result.</p>
+                    </div>
+                </div>
+
+                <label for="num1">First number</label>
+                <input id="num1" type="number" ng-model="a" placeholder="Enter first number">
+
+                <label for="num2">Second number</label>
+                <input id="num2" type="number" ng-model="b" placeholder="Enter second number">
+
+                <label for="operator">Operation</label>
+                <select id="operator" ng-model="operator">
+                    <option value="+">Addition (+)</option>
+                    <option value="-">Subtraction (-)</option>
+                    <option value="*">Multiplication (*)</option>
+                    <option value="/">Division (/)</option>
+                </select>
+
+                <section class="result" aria-live="polite">
+                    <span>RESULT</span>
+                    <strong>{{ calculate() }}</strong>
+                </section>
+                <button class="clear-button" type="button" ng-click="clear()">Clear values</button>
+            </section>
+
+            <section class="panel todo-panel" aria-labelledby="todo-heading">
+                <div class="section-heading">
+                    <span class="section-number">03</span>
+                    <div>
+                        <h2 id="todo-heading">To-Do List</h2>
+                        <p>Small steps make a productive day.</p>
+                    </div>
+                </div>
+
+                <form class="todo-form" ng-submit="addTask()">
+                    <label for="task-title">New task</label>
+                    <div class="task-entry">
+                        <input id="task-title" type="text" ng-model="newTask" placeholder="Add a task..." required>
+                        <button class="add-task-button" type="submit">Add task</button>
+                    </div>
+                </form>
+
+                <div class="task-summary">
+                    <span>Your tasks</span>
+                    <strong>{{ tasks.length }}</strong>
+                </div>
+                <p class="empty-state" ng-if="tasks.length === 0">You're all caught up. Add a task to get started!</p>
+                <ul class="task-list">
+                    <li ng-repeat="task in tasks track by $index">
+                        <span>{{ task }}</span>
+                        <button type="button" ng-click="removeTask($index)" aria-label="Delete task">Delete</button>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <footer>Built with AngularJS 1.8.2</footer>
+    </main>
+</body>
+
+</html>

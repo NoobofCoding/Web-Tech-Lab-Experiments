@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Shop | Experiment 7</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="cake.js" defer></script>
+</head>
+<body class="cake-page">
+    <main class="cake-shop">
+        <header class="app-header cake-header">
+            <a class="home-link" href="index.html">← All experiments</a>
+            <span class="eyebrow">THE LITTLE</span>
+            <h1>CAKE SHOP</h1>
+            <p>Sweet moments, made to order.</p>
+            <small>Register No: URK24CS9068</small>
+        </header>
+
+        <section class="cakes" aria-label="Cake menu">
+            <article class="cake">
+                <div class="cake-art rainbow" aria-hidden="true">🎂</div>
+                <h2>Color Cake</h2>
+                <p>₹300 each</p>
+            </article>
+            <article class="cake">
+                <div class="cake-art chocolate" aria-hidden="true">🍫</div>
+                <h2>Brown Cake</h2>
+                <p>₹200 each</p>
+            </article>
+            <article class="cake">
+                <div class="cake-art vanilla" aria-hidden="true">🍰</div>
+                <h2>Milky Cake</h2>
+                <p>₹250 each</p>
+            </article>
+            <article class="cake">
+                <div class="cake-art berry" aria-hidden="true">🧁</div>
+                <h2>Black Forest</h2>
+                <p>₹350 each</p>
+            </article>
+        </section>
+
+        <section class="order" aria-labelledby="order-heading">
+            <h2 id="order-heading">Place your order</h2>
+            <label for="colorQty">Color Cake (Quantity)
+                <input id="colorQty" type="number" min="0" step="1" value="2">
+            </label>
+            <label for="brownQty">Brown Cake (Quantity)
+                <input id="brownQty" type="number" min="0" step="1" value="1">
+            </label>
+            <label for="milkyQty">Milky Cake (Quantity)
+                <input id="milkyQty" type="number" min="0" step="1" value="2">
+            </label>
+            <label for="blackQty">Black Forest Cake (Quantity)
+                <input id="blackQty" type="number" min="0" step="1" value="1">
+            </label>
+            <button id="placeOrder" type="button">Place Order</button>
+            <div class="total"><span>Total price</span><strong id="totalPrice">₹0</strong></div>
+            <p id="message" role="status" aria-live="polite"></p>
+        </section>
+    </main>
+</body>
+</html>

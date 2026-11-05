@@ -1,0 +1,174 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:
+    url("https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200"),
+    linear-gradient(135deg,#111,#222,#000);
+    background-size:cover;
+    color:white;
+}
+
+header{
+    text-align:center;
+    padding:30px;
+    background:linear-gradient(90deg,#00c6ff,#0072ff);
+    border-radius:0 0 25px 25px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.5);
+}
+
+nav{
+    margin:20px;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:10px 20px;
+    background:#222;
+    border-radius:15px;
+}
+
+nav a:hover{
+    background:#0072ff;
+}
+
+.hero{
+    width:90%;
+    margin:20px auto;
+    padding:80px;
+    text-align:center;
+    border-radius:25px;
+    background:
+    url("https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200"),
+    linear-gradient(#333,#111);
+    background-size:cover;
+    box-shadow:0 0 20px cyan;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:20px;
+}
+
+h2{
+    margin:20px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:30px;
+}
+
+td{
+    padding:15px;
+    border:1px solid white;
+    text-align:center;
+}
+
+tr:nth-child(odd){
+    background:#1e1e1e;
+}
+
+tr:nth-child(even){
+    background:#333;
+}
+
+tr:hover{
+    background:#0072ff;
+}
+
+.itemImg{
+    opacity:1;
+    transition:0.5s;
+}
+
+.itemName:hover + .itemImg{
+    opacity:1;
+}
+
+.itemImg img{
+    width:180px;
+    height:100px;
+    border-radius:15px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input{
+    padding:12px;
+    border:none;
+    border-radius:15px;
+}
+
+input:focus{
+    border:3px solid red;
+    background:lightgreen;
+}
+
+input:required{
+    border:3px solid blue;
+    background:lightyellow;
+}
+
+input[type="email"]:invalid{
+    color:red;
+}
+
+input[type="email"]:valid{
+    color:blue;
+}
+
+input[type="submit"]{
+    background:#0072ff;
+    color:white;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:20px;
+    background:#111;
+    border-radius:25px 25px 0 0;
+}
+
+@media (max-width:764px){
+    nav ul{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero{
+        padding:40px 20px;
+    }
+
+    table,
+    tr,
+    td{
+        display:block;
+        width:100%;
+    }
+
+    .itemImg img{
+        width:100%;
+        height:auto;
+    }
+}

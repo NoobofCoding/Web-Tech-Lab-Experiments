@@ -1,0 +1,521 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #17243a;
+    line-height: 1.6;
+}
+
+.navbar {
+    background: #101d35;
+    color: white;
+    min-height: 75px;
+    padding: 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #55a8ff;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.navbar nav a {
+    color: #dce6f5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.navbar nav a:hover {
+    color: #55a8ff;
+}
+
+/* Home page */
+
+.hero {
+    background: linear-gradient(120deg, #101d35, #1c4779);
+    color: white;
+    padding: 85px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    min-height: 430px;
+}
+
+.hero-content {
+    max-width: 570px;
+}
+
+.eyebrow {
+    color: #2785e8;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.hero .eyebrow {
+    color: #80c0ff;
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero-text {
+    color: #d0dced;
+    max-width: 480px;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.primary-btn {
+    background: #247fe0;
+    color: white;
+}
+
+.primary-btn:hover:not(:disabled) {
+    background: #1265c0;
+}
+
+.secondary-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid #9dbce0;
+}
+
+.secondary-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+button:disabled {
+    background: #aab6c5;
+    cursor: not-allowed;
+}
+
+.hero-card {
+    background: white;
+    color: #17243a;
+    width: 280px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.hero-icon {
+    width: 55px;
+    height: 55px;
+    background: #e5f1ff;
+    color: #247fe0;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.hero-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.hero-card p {
+    color: #68778b;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.progress-line {
+    height: 7px;
+    background: #e7edf5;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.progress-line span {
+    display: block;
+    width: 65%;
+    height: 100%;
+    background: #247fe0;
+    border-radius: 10px;
+}
+
+.hero-card small {
+    color: #7b8796;
+}
+
+/* General sections */
+
+.section {
+    padding: 65px 9%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-size: 30px;
+}
+
+.feature-grid,
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.feature-card,
+.course-card {
+    background: white;
+    border: 1px solid #e6ebf2;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.feature-card {
+    padding: 28px;
+}
+
+.feature-card:hover,
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(25,50,85,0.08);
+}
+
+.feature-icon {
+    color: #247fe0;
+    background: #e8f2ff;
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+}
+
+.feature-card p,
+.course-body p {
+    color: #68778b;
+    font-size: 14px;
+}
+
+/* Page banner */
+
+.page-banner {
+    background: #eaf2fc;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.page-banner h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.page-banner p:last-child {
+    color: #68778b;
+}
+
+/* Registration form */
+
+.form-section {
+    max-width: 850px;
+    margin: 45px auto;
+    padding: 35px;
+    background: white;
+    border: 1px solid #e5eaf1;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(20,45,80,0.05);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.form-group input:not([type="radio"]),
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d6deea;
+    border-radius: 6px;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #247fe0;
+    box-shadow: 0 0 0 3px rgba(36,127,224,0.1);
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.radio-group {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.radio-option {
+    display: flex !important;
+    align-items: center;
+    gap: 7px;
+    font-weight: normal !important;
+}
+
+.radio-option input {
+    accent-color: #247fe0;
+}
+
+.error {
+    display: block;
+    color: #d93636;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.submit-btn {
+    margin-top: 5px;
+}
+
+.success-message {
+    color: #16834a;
+    background: #e8f8ef;
+    border: 1px solid #b9e8cb;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+/* Courses */
+
+.course-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 950px;
+    margin: auto;
+}
+
+.course-top {
+    height: 115px;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.blue {
+    background: #367fd0;
+}
+
+.green {
+    background: #259b79;
+}
+
+.orange {
+    background: #d68b3d;
+}
+
+.purple {
+    background: #7565b9;
+}
+
+.course-body {
+    padding: 25px;
+}
+
+.course-tag {
+    display: inline-block;
+    background: #edf4fd;
+    color: #247fe0;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    margin-bottom: 12px;
+}
+
+.course-body h3 {
+    margin-bottom: 10px;
+}
+
+.text-link {
+    display: inline-block;
+    color: #247fe0;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+/* Contact */
+
+.contact-layout {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 25px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 45px;
+}
+
+.contact-info h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.contact-info > p {
+    color: #68778b;
+    margin-bottom: 30px;
+}
+
+.contact-detail {
+    margin-bottom: 22px;
+}
+
+.contact-detail strong {
+    color: #247fe0;
+}
+
+.contact-detail p {
+    color: #68778b;
+    margin-top: 4px;
+}
+
+.contact-form {
+    background: white;
+    padding: 30px;
+    border: 1px solid #e5eaf1;
+    border-radius: 10px;
+}
+
+/* Footer */
+
+.footer {
+    background: #101d35;
+    color: #b9c7da;
+    text-align: center;
+    padding: 22px;
+    font-size: 13px;
+    margin-top: 50px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 750px) {
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .navbar nav {
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 55px 7%;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-card {
+        width: 100%;
+    }
+
+    .feature-grid,
+    .course-grid,
+    .form-grid,
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .form-section {
+        margin: 25px 15px;
+        padding: 22px;
+    }
+
+    .section {
+        padding: 45px 6%;
+    }
+
+    .page-banner h1 {
+        font-size: 29px;
+    }
+}

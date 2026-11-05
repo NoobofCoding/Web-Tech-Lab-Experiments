@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="careerApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathFinder | Student Career Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="#!/" class="logo">Path<span>Finder</span></a>
+
+        <nav>
+            <a href="#!/">Home</a>
+            <a href="#!/register">Register</a>
+            <a href="#!/courses">Courses</a>
+            <a href="#!/contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- AngularJS loads pages here -->
+    <main ng-view></main>
+
+    <!-- HOME PAGE -->
+    <script type="text/ng-template" id="home.html">
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">YOUR FUTURE STARTS HERE</p>
+                <h1>Build Skills.<br>Discover Opportunities.</h1>
+                <p class="hero-text">
+                    Explore learning resources, develop industry-ready skills,
+                    and take the next step towards your career.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#!/register" class="btn primary-btn">Join Now</a>
+                    <a href="#!/courses" class="btn secondary-btn">Explore Courses</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <div class="hero-icon">PF</div>
+                <h2>Your Career Journey</h2>
+                <p>Learn something new. Build something meaningful.</p>
+                <div class="progress-line">
+                    <span></span>
+                </div>
+                <small>Start your journey today</small>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-heading">
+                <p class="eyebrow">WHAT WE OFFER</p>
+                <h2>Everything you need to move forward</h2>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">01</div>
+                    <h3>Learn New Skills</h3>
+                    <p>Explore technical and professional courses to improve your knowledge.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">02</div>
+                    <h3>Career Guidance</h3>
+                    <p>Discover learning paths that help you prepare for your future career.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">03</div>
+                    <h3>Build Your Profile</h3>
+                    <p>Register and create your student profile to get started.</p>
+                </div>
+            </div>
+        </section>
+    </script>
+
+    <!-- REGISTRATION PAGE -->
+    <script type="text/ng-template" id="register.html">
+        <section class="page-banner">
+            <p class="eyebrow">GET STARTED</p>
+            <h1>Student Registration</h1>
+            <p>Create your profile and begin your career journey.</p>
+        </section>
+
+        <section class="form-section">
+            <form name="studentForm"
+                  ng-submit="registerStudent(studentForm)"
+                  novalidate>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text"
+                               name="fullName"
+                               ng-model="student.name"
+                               ng-pattern="/^[A-Za-z ]+$/"
+                               placeholder="Enter your full name"
+                               required>
+
+                        <small class="error"
+                               ng-show="studentForm.fullName.$touched && studentForm.fullName.$error.required">
+                            Name is required.
+                        </small>
+                        <small class="error"
+                               ng-show="studentForm.fullName.$touched && studentForm.fullName.$error.pattern">
+                            Name must contain letters only.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email"
+                               name="email"
+                               ng-model="student.email"
+                               placeholder="example@email.com"
+                               required>
+
+                        <small class="error"
+                               ng-show="studentForm.email.$touched && studentForm.email.$invalid">
+                            Enter a valid email address.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password"
+                               name="password"
+                               ng-model="student.password"
+                               ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/"
+                               placeholder="Create a password"
+                               required>
+
+                        <small class="error"
+                               ng-show="studentForm.password.$touched && studentForm.password.$error.required">
+                            Password is required.
+                        </small>
+                        <small class="error"
+                               ng-show="studentForm.password.$touched && studentForm.password.$error.pattern">
+                            Use 8+ characters with uppercase, lowercase and a number.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number"
+                               name="age"
+                               ng-model="student.age"
+                               min="18"
+                               max="30"
+                               placeholder="Enter your age"
+                               required>
+
+                        <small class="error"
+                               ng-show="studentForm.age.$touched && studentForm.age.$invalid">
+                            Age must be between 18 and 30.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="tel"
+                               name="mobile"
+                               ng-model="student.mobile"
+                               ng-pattern="/^[0-9]{10}$/"
+                               maxlength="10"
+                               placeholder="10-digit mobile number"
+                               required>
+
+                        <small class="error"
+                               ng-show="studentForm.mobile.$touched && studentForm.mobile.$invalid">
+                            Enter a valid 10-digit mobile number.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>State</label>
+                        <select name="state"
+                                ng-model="student.state"
+                                required>
+                            <option value="">Select your state</option>
+                            <option>Tamil Nadu</option>
+                            <option>Kerala</option>
+                            <option>Karnataka</option>
+                            <option>Andhra Pradesh</option>
+                            <option>Telangana</option>
+                            <option>Maharashtra</option>
+                            <option>Delhi</option>
+                            <option>Other</option>
+                        </select>
+
+                        <small class="error"
+                               ng-show="studentForm.state.$touched && studentForm.state.$error.required">
+                            Please select your state.
+                        </small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Gender</label>
+
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio"
+                                       name="gender"
+                                       ng-model="student.gender"
+                                       value="Male"
+                                       required>
+                                Male
+                            </label>
+
+                            <label class="radio-option">
+                                <input type="radio"
+                                       name="gender"
+                                       ng-model="student.gender"
+                                       value="Female"
+                                       required>
+                                Female
+                            </label>
+
+                            <label class="radio-option">
+                                <input type="radio"
+                                       name="gender"
+                                       ng-model="student.gender"
+                                       value="Other"
+                                       required>
+                                Other
+                            </label>
+                        </div>
+
+                        <small class="error"
+                               ng-show="studentForm.gender.$touched && studentForm.gender.$error.required">
+                            Please select your gender.
+                        </small>
+                    </div>
+
+                </div>
+
+                <button type="submit"
+                        class="btn primary-btn submit-btn"
+                        ng-disabled="studentForm.$invalid">
+                    Submit Registration
+                </button>
+
+                <p class="success-message" ng-show="registrationSuccess">
+                    Registration completed successfully!
+                </p>
+
+            </form>
+        </section>
+    </script>
+
+    <!-- COURSES PAGE -->
+    <script type="text/ng-template" id="courses.html">
+        <section class="page-banner">
+            <p class="eyebrow">EXPLORE AND LEARN</p>
+            <h1>Learning Programs</h1>
+            <p>Choose a subject and start building useful skills.</p>
+        </section>
+
+        <section class="section">
+            <div class="course-grid">
+
+                <div class="course-card">
+                    <div class="course-top blue">01</div>
+                    <div class="course-body">
+                        <span class="course-tag">Programming</span>
+                        <h3>Python Development</h3>
+                        <p>Learn programming fundamentals, functions, data structures and practical Python development.</p>
+                        <a href="#!/register" class="text-link">Get Started →</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-top green">02</div>
+                    <div class="course-body">
+                        <span class="course-tag">Technology</span>
+                        <h3>Web Development</h3>
+                        <p>Understand HTML, CSS and JavaScript to create responsive and interactive websites.</p>
+                        <a href="#!/register" class="text-link">Get Started →</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-top orange">03</div>
+                    <div class="course-body">
+                        <span class="course-tag">Data Science</span>
+                        <h3>Data Analytics</h3>
+                        <p>Explore data cleaning, visualization and analysis using practical tools and techniques.</p>
+                        <a href="#!/register" class="text-link">Get Started →</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-top purple">04</div>
+                    <div class="course-body">
+                        <span class="course-tag">Artificial Intelligence</span>
+                        <h3>Machine Learning</h3>
+                        <p>Discover datasets, model training, prediction and the fundamentals of machine learning.</p>
+                        <a href="#!/register" class="text-link">Get Started →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </script>
+
+    <!-- CONTACT PAGE -->
+    <script type="text/ng-template" id="contact.html">
+        <section class="page-banner">
+            <p class="eyebrow">WE ARE HERE TO HELP</p>
+            <h1>Contact Us</h1>
+            <p>Send us your questions or feedback.</p>
+        </section>
+
+        <section class="contact-layout">
+            <div class="contact-info">
+                <h2>Let's connect.</h2>
+                <p>Have a question about courses or registration? Send us a message.</p>
+
+                <div class="contact-detail">
+                    <strong>Email</strong>
+                    <p>support@pathfinder.example</p>
+                </div>
+
+                <div class="contact-detail">
+                    <strong>Working Hours</strong>
+                    <p>Monday - Friday, 9:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+
+            <form name="contactForm"
+                  class="contact-form"
+                  ng-submit="sendMessage(contactForm)"
+                  novalidate>
+
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text"
+                           name="contactName"
+                           ng-model="contact.name"
+                           ng-pattern="/^[A-Za-z ]+$/"
+                           placeholder="Enter your name"
+                           required>
+
+                    <small class="error"
+                           ng-show="contactForm.contactName.$touched && contactForm.contactName.$invalid">
+                        Enter a valid name using letters only.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email"
+                           name="contactEmail"
+                           ng-model="contact.email"
+                           placeholder="Enter your email"
+                           required>
+
+                    <small class="error"
+                           ng-show="contactForm.contactEmail.$touched && contactForm.contactEmail.$invalid">
+                        Enter a valid email address.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message"
+                              ng-model="contact.message"
+                              rows="5"
+                              placeholder="Write your message"
+                              required></textarea>
+
+                    <small class="error"
+                           ng-show="contactForm.message.$touched && contactForm.message.$invalid">
+                        Message is required.
+                    </small>
+                </div>
+
+                <button type="submit"
+                        class="btn primary-btn"
+                        ng-disabled="contactForm.$invalid">
+                    Send Message
+                </button>
+
+                <p class="success-message" ng-show="messageSent">
+                    Your message has been submitted successfully!
+                </p>
+            </form>
+        </section>
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 PathFinder Student Career Portal. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

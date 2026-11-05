@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>My Study Planner</h1>
+            <p id="date"></p>
+            <h2 id="clock">00:00:00</h2>
+        </header>
+
+        <div class="stats">
+            <div class="stat-box">
+                <h3 id="totalTasks">0</h3>
+                <p>Total Tasks</p>
+            </div>
+
+            <div class="stat-box">
+                <h3 id="completedTasks">0</h3>
+                <p>Completed</p>
+            </div>
+
+            <div class="stat-box">
+                <h3 id="totalTime">0</h3>
+                <p>Minutes Studied</p>
+            </div>
+        </div>
+
+        <h2>Add a Study Task</h2>
+
+        <form id="taskForm">
+
+            <label>Subject:</label>
+            <input type="text" id="subject" placeholder="Enter subject" required>
+
+            <label>Task Name:</label>
+            <input type="text" id="taskName" placeholder="Enter task name" required>
+
+            <label>Duration (minutes):</label>
+            <input type="number" id="duration" min="1" value="25" required>
+
+            <button type="submit">Add Task</button>
+
+        </form>
+
+        <h2>Study Timer</h2>
+
+        <div class="timer-box">
+
+            <h1 id="timer">25:00</h1>
+
+            <p id="timerStatus">Select a task to begin studying.</p>
+
+            <button type="button" id="pauseBtn">Pause</button>
+            <button type="button" id="resetBtn">Reset</button>
+
+        </div>
+
+        <h2>My Tasks</h2>
+
+        <div id="taskList">
+            <p>No tasks added yet.</p>
+        </div>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

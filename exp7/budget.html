@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator | Experiment 7</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body class="budget-page">
+    <main class="budget-app">
+        <header class="app-header">
+            <a class="home-link" href="index.html">← All experiments</a>
+            <span class="eyebrow">EXPERIMENT 07 · JQUERY</span>
+            <h1>My Budget Planner</h1>
+            <p>Give every rupee a purpose.</p>
+            <small>Register No: <strong>URK24CS9068</strong></small>
+        </header>
+
+        <label for="amount">Monthly amount (₹)</label>
+        <input id="amount" type="number" min="0.01" step="any" value="20000">
+        <p class="hint">Enter the percentage for each category. The total must equal 100%.</p>
+
+        <div class="fields">
+            <label for="rent">Room rent (%)
+                <input class="percent" id="rent" type="number" min="0" max="100" step="any" value="30">
+            </label>
+            <label for="accessories">Accessories (%)
+                <input class="percent" id="accessories" type="number" min="0" max="100" step="any" value="20">
+            </label>
+            <label for="emergency">Emergency (%)
+                <input class="percent" id="emergency" type="number" min="0" max="100" step="any" value="10">
+            </label>
+            <label for="savings">Savings (%)
+                <input class="percent" id="savings" type="number" min="0" max="100" step="any" value="40">
+            </label>
+        </div>
+
+        <button id="evaluate" type="button">Evaluate My Money</button>
+        <p id="message" role="status" aria-live="polite"></p>
+
+        <section class="results" aria-labelledby="breakdown-heading">
+            <h2 id="breakdown-heading">Your breakdown</h2>
+            <div class="result-row"><span>Room rent</span><strong id="rentResult">₹0.00</strong></div>
+            <div class="result-row"><span>Accessories</span><strong id="accessoriesResult">₹0.00</strong></div>
+            <div class="result-row"><span>Emergency</span><strong id="emergencyResult">₹0.00</strong></div>
+            <div class="result-row"><span>Savings</span><strong id="savingsResult">₹0.00</strong></div>
+        </section>
+    </main>
+</body>
+</html>

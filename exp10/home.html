@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campus Event Registration</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f7;
+            padding: 30px;
+        }
+        .container {
+            background: white;
+            max-width: 450px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        h2 { color: #174477; text-align: center; }
+        input, select, button {
+            width: 100%;
+            padding: 11px;
+            margin: 9px 0;
+            box-sizing: border-box;
+        }
+        button {
+            background: #1769aa;
+            color: white;
+            border: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Campus Event Registration</h2>
+
+    <form action="/server" method="POST">
+
+        <label>Student Name</label>
+        <input type="text" name="name"
+               placeholder="Enter your name"
+               pattern="[A-Za-z ]+" required>
+
+        <label>Email Address</label>
+        <input type="email" name="email"
+               placeholder="Enter your email" required>
+
+        <label>Mobile Number</label>
+        <input type="tel" name="mobile"
+               pattern="[0-9]{10}"
+               maxlength="10"
+               placeholder="10-digit mobile number" required>
+
+        <label>Department</label>
+        <select name="department" required>
+            <option value="">Select Department</option>
+            <option>CSE</option>
+            <option>AIML</option>
+            <option>IT</option>
+            <option>ECE</option>
+            <option>EEE</option>
+            <option>Mechanical</option>
+        </select>
+
+        <label>Event</label>
+        <select name="event" required>
+            <option value="">Select Event</option>
+            <option>Hackathon</option>
+            <option>Technical Workshop</option>
+            <option>Project Expo</option>
+            <option>Web Development Contest</option>
+        </select>
+
+        <button type="submit">Register Now</button>
+    </form>
+</div>
+
+</body>
+</html>
